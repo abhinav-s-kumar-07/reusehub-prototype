@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ReUseHub | SDG 12 Prototype</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+    color: #1f2937;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(90deg, #4f46e5, #6366f1);
+    color: white;
+    padding: 22px;
+    text-align: center;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    background: #ffffff;
+    padding: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+nav button {
+    background: #eef2ff;
+    color: #4338ca;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+nav button:hover {
+    background: #4338ca;
+    color: white;
+}
+
+/* SECTIONS */
+section {
+    display: none;
+    padding: 30px 15px;
+}
+
+.active {
+    display: block;
+}
+
+/* CARD */
+.card {
+    background: white;
+    max-width: 460px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #4338ca;
+    margin-bottom: 20px;
+}
+
+/* INPUTS */
+input, textarea {
+    width: 100%;
+    padding: 11px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+/* MAIN BUTTON */
+button.main {
+    width: 100%;
+    background: linear-gradient(90deg, #4f46e5, #6366f1);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+button.main:hover {
+    opacity: 0.9;
+}
+
+/* ITEMS */
+.item {
+    background: #f1f5f9;
+    padding: 15px;
+    margin-top: 12px;
+    border-radius: 10px;
+}
+
+.item strong {
+    font-size: 16px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>ReUseHub</h1>
+    <p>Second-Hand Item Exchange Platform | SDG 12</p>
+</header>
+
+<nav>
+    <button onclick="show('login')">Login</button>
+    <button onclick="show('register')">Register</button>
+    <button onclick="show('dashboard')">Dashboard</button>
+</nav>
+
+<!-- LOGIN -->
+<section id="login" class="active">
+    <div class="card">
+        <h2>Login</h2>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button class="main" onclick="show('dashboard')">Login</button>
+    </div>
+</section>
+
+<!-- REGISTER -->
+<section id="register">
+    <div class="card">
+        <h2>Create Account</h2>
+        <input type="text" placeholder="Full Name">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button class="main" onclick="show('login')">Register</button>
+    </div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+    <div class="card">
+        <h2>Dashboard</h2>
+        <button class="main" onclick="show('post')">Post Item</button>
+        <button class="main" onclick="show('browse')">Browse Items</button>
+    </div>
+</section>
+
+<!-- POST ITEM -->
+<section id="post">
+    <div class="card">
+        <h2>Post an Item</h2>
+        <input type="text" placeholder="Item Name">
+        <input type="text" placeholder="Category">
+        <textarea placeholder="Item Description"></textarea>
+        <input type="text" placeholder="Price / Exchange">
+        <button class="main" onclick="alert('Item Posted (Prototype)')">Post Item</button>
+    </div>
+</section>
+
+<!-- BROWSE ITEMS -->
+<section id="browse">
+    <div class="card">
+        <h2>Available Items</h2>
+
+        <div class="item">
+            <strong>Used Engineering Books</strong><br>
+            Price: ₹500<br>
+            <button class="main">Contact Seller</button>
+        </div>
+
+        <div class="item">
+            <strong>Office Chair</strong><br>
+            Exchange Available<br>
+            <button class="main">Contact Seller</button>
+        </div>
+
+    </div>
+</section>
+
+<script>
+function show(id) {
+    document.querySelectorAll("section").forEach(
+        sec => sec.classList.remove("active")
+    );
+    document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>
